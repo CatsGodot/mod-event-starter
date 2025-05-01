@@ -31,6 +31,7 @@ public:
 
 private:
     bool _isEnableModule = false;
+    float _waitTime = 60;
 };
 
 #define sES EventStarter::instance()

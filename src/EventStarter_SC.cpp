@@ -18,7 +18,7 @@
 #include "Config.h"
 #include "Log.h"
 #include "ScriptMgr.h"
-#include "ServerAutoShutdown.h"
+#include "EventStarter.h"
 #include "TaskScheduler.h"
 
 class EventStarter_World : public WorldScript

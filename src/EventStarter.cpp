@@ -21,7 +21,7 @@
 #include "Language.h"
 #include "Log.h"
 #include "ObjectMgr.h"
-#include "ServerAutoShutdown.h"
+#include "EventStarter.h"
 #include "StringConvert.h"
 #include "StringFormat.h"
 #include "TaskScheduler.h"
@@ -31,6 +31,12 @@
 #include "WorldSessionMgr.h"
 
 #include <stdlib.h>     //for using the function sleep
+
+namespace
+ {
+     // Scheduler - for update
+     TaskScheduler scheduler;
+ }
 
 /*static*/ EventStarter* EventStarter::instance()
 {
@@ -55,9 +61,9 @@ void EventStarter::Init()
     LOG_INFO("module", " ");
 
     _waitTime = sConfigMgr->GetOption<bool>("EventStarter.Wait", 60);
-    sleep(_waitTime*1000)
+    sleep(_waitTime*1000);
 
-    StartPersistentGameEvents()
+    StartPersistentGameEvents();
 }
 
 void EventStarter::OnUpdate(uint32 diff)
