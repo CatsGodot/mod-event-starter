@@ -15,15 +15,15 @@
  * with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _SERVER_AUTO_SHUTDOWN_H_
-#define _SERVER_AUTO_SHUTDOWN_H_
+#ifndef _EVENT_STARTER_H_
+#define _EVENT_STARTER_H_
 
 #include "Common.h"
 
-class ServerAutoShutdown
+class EventStarter
 {
 public:
-    static ServerAutoShutdown* instance();
+    static EventStarter* instance();
 
     void Init();
     void OnUpdate(uint32 diff);
@@ -33,6 +33,6 @@ private:
     bool _isEnableModule = false;
 };
 
-#define sSAS ServerAutoShutdown::instance()
+#define sES EventStarter::instance()
 
-#endif /* _SERVER_AUTO_SHUTDOWN_H_ */
+#endif /* _EVENT_STARTER_H_ */

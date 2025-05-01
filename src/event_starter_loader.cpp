@@ -16,10 +16,10 @@
  */
 
 // From SC
-void AddSC_ServerAutoShutdown();
+void AddSC_EventStarter();
 
 // Add all scripts
-void Addmod_server_auto_shutdownScripts()
+void Addmod_server_event_starter()
 {
-    AddSC_ServerAutoShutdown();
+    AddSC_EventStarter();
 }

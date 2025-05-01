@@ -21,10 +21,10 @@
 #include "ServerAutoShutdown.h"
 #include "TaskScheduler.h"
 
-class ServerAutoShutdown_World : public WorldScript
+class EventStarter_World : public WorldScript
 {
 public:
-    ServerAutoShutdown_World() : WorldScript("ServerAutoShutdown_World", {
+    EventStarter_World() : WorldScript("EventStarter_World", {
         WORLDHOOK_ON_UPDATE,
         WORLDHOOK_ON_AFTER_CONFIG_LOAD,
         WORLDHOOK_ON_STARTUP
@@ -32,23 +32,23 @@ public:
 
     void OnUpdate(uint32 diff) override
     {
-        sSAS->OnUpdate(diff);
+        sES->OnUpdate(diff);
     }
 
     void OnAfterConfigLoad(bool reload) override
     {
         if (reload)
-            sSAS->Init();
+            sES->Init();
     }
 
     void OnStartup() override
     {
-        sSAS->Init();
+        sES->Init();
     }
 };
 
 // Group all custom scripts
-void AddSC_ServerAutoShutdown()
+void AddSC_EventStarter()
 {
-    new ServerAutoShutdown_World();
+    new EventStarter_World();
 }
