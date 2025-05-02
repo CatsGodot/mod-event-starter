@@ -19,7 +19,7 @@
 void AddSC_EventStarter();
 
 // Add all scripts
-void Addmod_server_event_starter()
+void Addmod_event_starterScripts()
 {
     AddSC_EventStarter();
 }

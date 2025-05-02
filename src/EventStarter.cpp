@@ -60,8 +60,8 @@ void EventStarter::Init()
     LOG_INFO("module","> EventStarter: System loading");
     LOG_INFO("module", " ");
 
-    _waitTime = sConfigMgr->GetOption<bool>("EventStarter.Wait", 60);
-    sleep(_waitTime*1000);
+    _waitTime = sConfigMgr->GetOption<float>("EventStarter.Wait", 60.0);
+    sleep( _waitTime );
 
     StartPersistentGameEvents();
 }
@@ -77,7 +77,7 @@ void EventStarter::OnUpdate(uint32 diff)
 
 void EventStarter::StartPersistentGameEvents()
 {
-    std::string eventList = sConfigMgr->GetOption<std::string>("ServerAutoShutdown.StartEvents", "");
+    std::string eventList = sConfigMgr->GetOption<std::string>("EventStarter.StartEvents", "");
 
     std::vector<std::string_view> tokens = Acore::Tokenize(eventList, ' ', false);
     GameEventMgr::GameEventDataMap const& events = sGameEventMgr->GetEventMap();

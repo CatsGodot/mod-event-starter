@@ -14,5 +14,5 @@
 #
 
 EventStarter.Enabled = 1
-EventStarter.Wait = 90
+EventStarter.Wait = 90.0
 EventStarter.StartEvents = "2 9 52"
